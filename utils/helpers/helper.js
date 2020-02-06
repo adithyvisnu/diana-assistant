@@ -71,7 +71,31 @@ const sendDefensiveMessage = async (data) => {
   return res;
 };
 
+
+const createRoom = async (userId) => {
+  const payload = {
+    "user_ids": [userId, 'guest-101'],
+  }
+  const options = {
+    method: 'POST',
+    uri: 'https://api.qiscus.com/api/v2.1/rest/get_or_create_room_with_target',
+    body: payload,
+    headers: {
+      'Content-Type': 'application/json',
+      'QISCUS-SDK-APP-ID': 'lucinta-a-glhzm4uglkx',
+      'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
+    },
+    json: true,
+  };
+  const res = rp(options).then(res => {
+    return res;
+  }).catch((err) => {
+    return err;
+  });
+  return res;
+}
 module.exports = {
   sendQiscus,
-  sendDefensiveMessage
+  sendDefensiveMessage,
+  createRoom
 };

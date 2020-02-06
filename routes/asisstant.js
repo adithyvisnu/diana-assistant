@@ -24,4 +24,19 @@ router.post('/', async function(req, res, next) {
   res.send(request)
 });
 
+router.post('/room', async function(req, res, next) {
+  const body = req.body;
+  const result = await QiscusRequest.createRoom(body.userId);
+  const response = {
+    err: null,
+    data: {
+      roomId: result.results.room.room_id,
+      room_type: result.results.room.room_type
+    },
+    code: 200,
+    
+  }
+  res.send(response);
+})
+
 module.exports = router;
