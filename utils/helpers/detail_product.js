@@ -3,8 +3,8 @@ const uri = 'api/catalog/solutions/v1/solution-data';
 
 const get = async (token, keywords, payload) => {
   const body = {
-    "user_id": "guest-101",
-    "room_id": "9832314",
+    "user_id": "fikri@qiscus.com",
+    "room_id": "9850506",
     "type": "carousel",
     "payload": {
       "cards": [
