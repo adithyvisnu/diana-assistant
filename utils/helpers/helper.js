@@ -63,8 +63,8 @@ const sendDefensiveMessage = async (data) => {
     },
     body: 
     {
-      "user_id": "guest-101",
-      "room_id": "9832314",
+    "user_id": "fikri@qiscus.com",
+    "room_id": "9850506",
       "message": data.message
     },
     uri,
