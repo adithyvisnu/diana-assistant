@@ -1,7 +1,7 @@
 const rp = require('request-promise');
-const uri = 'api/catalog/solutions/v1/solution-data';
+const uri = 'https://catalog-api-dev.telkomdigitalsolution.co/api/catalog/products/v1/?sort=POPULAR&size=3';
 
-const get = async (token, keywords, payload) => {
+const get = async (data) => {
   const body = {
     "user_id": "fikri@qiscus.com",
     "room_id": "9850506",
@@ -115,13 +115,12 @@ const get = async (token, keywords, payload) => {
   }
 
   const options = {
-    method: 'POST',
+    method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
-      'QISCUS-SDK-APP-ID': 'lucinta-a-glhzm4uglkx',
-      'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
+      'Authorization': `Bearer ${data.content}`,
+      // 'QISCUS-SDK-APP-ID': 'lucinta-a-glhzm4uglkx',
+      // 'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
     },
-    body: body,
     uri,
     json: true
   }
