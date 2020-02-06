@@ -2,7 +2,7 @@ const type = [
   'product catalog',
   'lapor gangguan',
   'policies & guidances',
-  'analytics'
+  'analytics',
 ];
 
 module.exports = {
