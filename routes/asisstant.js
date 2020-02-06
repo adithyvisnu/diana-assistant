@@ -32,7 +32,6 @@ router.post('/room', async function(req, res, next) {
       room_type: result.results.room.room_type
     },
     code: 200,
-    
   }
   res.send(response);
 })
