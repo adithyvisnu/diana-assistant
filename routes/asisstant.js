@@ -5,7 +5,7 @@ const helpers = require('../utils/helpers/helper');
 /* GET home page. */
 router.post('/', async function(req, res, next) {
   const message = req.body.payload.message.text;
-  const content = req.body.payload.message.payload.content.token;
+//   const content = req.body.payload.message.payload.content.token;
   const roomId = req.body.payload.room.id_str;
   const guestId = req.body.payload.from.email;
 
