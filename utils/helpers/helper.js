@@ -11,7 +11,7 @@ const sendQiscus = async (data, product) => {
     const payload = {
         cards: []
     }
-    for (let index = 0; index < data.length; index++) {
+    for (let index = 0; index < 1; index++) {
         const bodyQiscus = data[index];
         if (bodyQiscus.type == 'product catalog') {
             payload.type = 'carousel';
@@ -46,9 +46,9 @@ const sendQiscus = async (data, product) => {
 
     }
 
-    console.log(JSON.stringify({
+    console.log("awaewaewdawd", JSON.stringify({
         "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
-        "room_id": "9850506",
+        "room_id": data.roomId,
         "type": payload.type,
         "payload": {
             cards: payload.cards
@@ -70,7 +70,7 @@ const sendQiscus = async (data, product) => {
         },
         body: {
             "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
-            "room_id": "9850506",
+            "room_id": data.roomId,
             "type": payload.type,
             "payload": {
                 cards: payload.cards
@@ -236,7 +236,7 @@ const proccessAction = async (data) => {
 
                 const body = {
                     "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
-                    "room_id": "9850506",
+                    "room_id": data.roomId,
                     "type": "card",
                     "payload": {
                       "text": resultTest.data[0].label,
