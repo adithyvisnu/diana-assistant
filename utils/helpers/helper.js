@@ -7,26 +7,26 @@ const nlp = require('../helpers/nlp');
 const sendQiscus = async (data, product) => {
     // console.log(product)
     const payload = {
-            buttons:[]
+            cards:[]
             
         
     }
     for (let index = 0; index < data.length; index++) {
         const bodyQiscus = data[index];
         if (bodyQiscus.type == 'product catalog') {
-            payload.type = 'buttons';
+            payload.type = 'carousel';
             payload.text = 'Product dan Layanan Terpopuler';
             product.data.map(data => {
-                payload.buttons.push({
-                    label: 'button'+index,
-                    payload:data
+                payload.cards.push({
+                    // label: 'button'+index,
+                    data
                 });
             });
       }
 
     }
 
-    console.log(JSON.stringify(payload, 0, 2))
+    // console.log(JSON.stringify(payload, 0, 2))
     const options = {
         method: 'POST',
         headers: {
@@ -39,20 +39,21 @@ const sendQiscus = async (data, product) => {
             "room_id": "9850506",
             "type": payload.type,
             "payload": {
-                "user_id": "guest-101",
-                "room_id": "9832314",
-                "type": payload.type,
-                "payload": {
-                    text:payload.text,
-                    buttons:payload.buttons
-                }
+                cards: payload.cards
+                // "user_id": "guest-101",
+                // "room_id": "9832314",
+                // "type": payload.type,
+                // "payload": {
+                //     text:payload.text,
+                //     buttons:payload.buttons
+                // }
             }
         },
         uri,
         json: true
     };
     const res = rp(options).then(res => {
-        console.log(res)
+        // console.log(res)
         return res;
     }).catch((err) => {
         return err;
@@ -118,7 +119,7 @@ const proccessAction = async (data) => {
             setTimeout(async () => {
                 const product = await detail_product.get(data);
                 const result = await sendQiscus(CONSTANTS.bodyQiscus, product);
-                console.log(JSON.stringify(result, 0, 2))
+                // console.log(JSON.stringify(result, 0, 2))
             }, 100);
             break;
         case 1: await sendQiscus();
