@@ -1,4 +1,5 @@
 const rp = require('request-promise');
+const dbElastic = require('./db');
 
 const getListTicket = async (data) => {
     const options = {
@@ -17,6 +18,12 @@ const getListTicket = async (data) => {
     return res;
 }
 
+const getListFromElastic = async (data) => {
+    const result = await dbElastic.searchTicket(data);
+    return result;
+}
+
 module.exports = {
-    getListTicket
+    getListTicket,
+    getListFromElastic
 };

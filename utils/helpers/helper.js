@@ -2,6 +2,7 @@ const rp = require('request-promise');
 const CONSTANTS = require('./constants');
 const detail_product = require('./detail_product');
 const policies = require('./policies');
+const analytics = require('./analytics');
 const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 const nlp = require('../helpers/nlp');
 
@@ -125,7 +126,12 @@ const proccessAction = async (data) => {
             }, 100);
             break;
         case 1: result = await policies.list(data); break;
-        case 2: result = await sendQiscus(); break;
+        case 2: 
+            let resultListTicket = await analytics.getListTicket(data);
+
+            let resultStringToQiscus = '';
+            result = await sendDefensiveMessage(resultStringToQiscus);
+            break;
         default:
             const resultTest = await nlp.nlpTest(indexConstants.toString());
             if (resultTest[0].value == resultTest[1].value) {
