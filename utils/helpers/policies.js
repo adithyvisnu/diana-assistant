@@ -57,7 +57,7 @@ const SSTFSC = async ({roomId}) => {
     "room_id": roomId,
     "type": "file_attachment",
     "payload": {
-      "url": "https://drive.google.com/file/d/1hL3650r8slNkjLMXEJ_UUTrtmMoZan5F/view?usp=sharing",
+      "url": "https://minio-catalog-dev.telkomdigitalsolution.co/catalogpublic/Strategy%20Shifting%20to%20The%20Front%20Sales%20Connectivity%202020.pdf",
       "caption": "Strategy Shifting to The Front Sales Connectivity 2020",
       "file_name": "",
       "size": 0,
@@ -91,7 +91,7 @@ const AMALCFUE = async ({roomId}) => {
     "room_id": roomId,
     "type": "file_attachment",
     "payload": {
-      "url": "https://drive.google.com/file/d/1ha4l9pOXYE804uhVCOVB9uuN5OsU5PY1/view?usp=sharing",
+      "url": "https://minio-catalog-dev.telkomdigitalsolution.co/catalogpublic/AM%20Alignment%20CFUE.pdf",
       "caption": "AM Alignment CFUE",
       "file_name": "",
       "size": 0,

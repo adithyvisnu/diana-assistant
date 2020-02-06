@@ -7,7 +7,6 @@ const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 const nlp = require('../helpers/nlp');
 
 const sendQiscus = async (datas, data, product) => {
-    console.log('data di senQiscus', datas)
     const payload = {
         cards: []
     }
