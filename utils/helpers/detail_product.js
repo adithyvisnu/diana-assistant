@@ -1,5 +1,6 @@
 const rp = require('request-promise');
 const uri = 'https://catalog-api-dev.telkomdigitalsolution.co/api/catalog/products/v1/?sort=POPULAR&size=3';
+const uriSearch = 'https://catalog-api-dev.telkomdigitalsolution.co/api/catalog/products/v1/?searchProduct=jasdjhasd'
 
 const get = async (data) => {
   const body = {

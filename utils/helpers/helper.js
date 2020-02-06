@@ -30,14 +30,37 @@ const sendQiscus = async (data, product) => {
                             "method": "",
                             "payload": null
                         }
-                    },"buttons": []
+                    },"buttons": [{
+                        "label": "button1",
+                        "type": "postback",
+                        "postback_text": "Load more",
+                        "payload": {
+                            "url": "http://somewhere.com/button1",
+                            "method": "get",
+                            "payload": null
+                        }
+                    }]
                 });
             });
         }
 
     }
 
-    console.log(JSON.stringify(payload, null, 2))
+    console.log(JSON.stringify({
+        "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
+        "room_id": "9850506",
+        "type": payload.type,
+        "payload": {
+            cards: payload.cards
+            // "user_id": "guest-101",
+            // "room_id": "9832314",
+            // "type": payload.type,
+            // "payload": {
+            //     text:payload.text,
+            //     buttons:payload.buttons
+            // }
+        }
+    }, null, 2))
     const options = {
         method: 'POST',
         headers: {
