@@ -159,11 +159,10 @@ const proccessAction = async (data) => {
             break;
         case 1: result = await policies.list(data); break;
         case 2: 
-            let resultListTicket = await analytics.getListFromElastic(data);
-            console.log(resultListTicket);
+            let resultListTicket = await analytics.getListFromElastic();
             let dataToMessage = {
                 roomId : data.roomId,
-                message : ''
+                message : 'Menampilkan laporan status ticket aduan \n \n Format : \n Laporan pengaduan MyTds seminggu kebelakang. \n Total Tiket ' + resultListTicket.hits.total
             };
             result = await messageAnalytic(dataToMessage);
             break;
