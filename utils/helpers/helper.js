@@ -20,7 +20,9 @@ const sendQiscus = async (data, product) => {
             product.data.map(data => {
                 payload.cards.push({
                     // label: 'button'+index,
-                    data
+                    image: data.productIconUrl,
+                    title:data.productName
+
                 });
             });
       }
