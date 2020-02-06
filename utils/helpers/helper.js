@@ -115,6 +115,7 @@ const createRoom = async (userId) => {
 }
 
 const proccessAction = async (data) => {
+    console.log(data.message)
     const indexConstants = CONSTANTS.type.findIndex(element => element === data.message);
     console.log(indexConstants)
     let result;
@@ -131,13 +132,14 @@ const proccessAction = async (data) => {
         case 1: result = await policies.list(data); break;
         case 2: result = await sendQiscus(); break;
         default:
-            const resultTest = await nlp.nlpTest(indexConstants.toString());
-            if (resultTest[0].value == resultTest[1].value) {
-                data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
-                result = await sendDefensiveMessage(data);
-            } else {
-                console.log(resultTest[0]);
-            } 
+            const resultTest = await nlp.nlpTest(data.message);
+            console.log(resultTest)
+            // if (resultTest[0].value == resultTest[1].value) {
+            //     data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
+            //     result = await sendDefensiveMessage(data);
+            // } else {
+            //     console.log(resultTest[0]);
+            // } 
             break;
     }
     return result;
