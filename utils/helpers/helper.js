@@ -11,7 +11,7 @@ const sendQiscus = async (data, product) => {
     const payload = {
         cards: []
     }
-    for (let index = 0; index < 1; index++) {
+    for (let index = 0; index < data.length; index++) {
         const bodyQiscus = data[index];
         if (bodyQiscus.type == 'product catalog') {
             payload.type = 'carousel';
@@ -47,7 +47,7 @@ const sendQiscus = async (data, product) => {
     }
 
     console.log(JSON.stringify({
-        "user_id": "5e3c7ff620f83706c9f33bc9@vutura",
+        "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
         "room_id": "9850506",
         "type": payload.type,
         "payload": {
@@ -69,7 +69,7 @@ const sendQiscus = async (data, product) => {
             'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
         },
         body: {
-            "user_id": "5e3c7ff620f83706c9f33bc9@vutura",
+            "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
             "room_id": "9850506",
             "type": payload.type,
             "payload": {
@@ -104,7 +104,7 @@ const sendDefensiveMessage = async (data) => {
         },
         body:
         {
-            "user_id": "5e3c7ff620f83706c9f33bc9@vutura",
+            "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
             "room_id": data.roomId,
             "message": data.message
         },
@@ -152,7 +152,7 @@ const messageAnalytic = async (data) => {
         },
         body:
         {
-            "user_id": "5e3c7ff620f83706c9f33bc9@vutura",
+            "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
             "room_id": data.roomId,
             "message": data.message
         },
@@ -235,7 +235,7 @@ const proccessAction = async (data) => {
                 const resultApi = await detail_product.search(data, resultTest.data[0].label);
 
                 const body = {
-                    "user_id": "5e3c7ff620f83706c9f33bc9@vutura",
+                    "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
                     "room_id": "9850506",
                     "type": "card",
                     "payload": {
