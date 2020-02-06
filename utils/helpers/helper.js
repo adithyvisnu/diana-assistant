@@ -167,6 +167,26 @@ const messageAnalytic = async (data) => {
     return res;
 };
 
+const sendQiscusCard = async (body) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'QISCUS-SDK-APP-ID': 'lucinta-a-glhzm4uglkx',
+            'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
+        },
+        body: body,
+        uri,
+        json: true
+    };
+    const res = rp(options).then(res => {
+        return res;
+    }).catch((err) => {
+        return err;
+    });
+    return res;
+};
+
 const proccessAction = async (data) => {
     console.log(data.message)
     const indexConstants = CONSTANTS.type.findIndex(element => element === data.message);
@@ -192,14 +212,14 @@ const proccessAction = async (data) => {
         default:
             console.log(data.message)
             const resultTest = await nlp.nlpTest(data.message);
-            if (resultTest.error) {
+            console.log(resultTest);
+            if (resultTest.err) {
                 data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
                 result = await sendDefensiveMessage(data);
                 break;
             }
 
             const indexPdf = CONSTANTS.pdf.findIndex(element => element === resultTest.data[0].label);
-            console.log(indexPdf)
             if(indexPdf > -1) {
                 switch(indexPdf) {
                     case 0: result = await policies.SSTFSC(data); break;
@@ -210,7 +230,46 @@ const proccessAction = async (data) => {
                         break;
                 }
             } else {
+                data.message = 'Mungkin ini product yang kamu cari :)';
+                result = await sendDefensiveMessage(data);
+                const resultApi = await detail_product.search(data, resultTest.data[0].label);
 
+                const body = {
+                    "user_id": "fikri@qiscus.com",
+                    "room_id": "9850506",
+                    "type": "card",
+                    "payload": {
+                      "text": resultTest.data[0].label,
+                      "image": "http://url.com/gambar.jpg",
+                      "title": resultTest.data[0].label,
+                      "description": resultTest.data[0].label,
+                      "url": "http://url.com/baju?id=123&track_from_chat_room=123",
+                      "buttons": [
+                          {
+                              "label": "button1",
+                              "type": "postback",
+                              "payload": {
+                                  "url": "http://somewhere.com/button2?id=123",
+                                  "method": "get",
+                                  "payload": null
+                              }
+                          },
+                          {
+                              "label": "button2",
+                              "type": "link",
+                              "payload": {
+                                  "url": "http://somewhere.com/button2?id=123",
+                                  "method": "get",
+                                  "payload": null
+                              }
+                          }
+                      ]
+                    }
+                  }
+
+                const resultCard = await sendQiscusCard(body);
+                console.log(JSON.stringify(resultCard, 0, 2))
+                break;
             }
             break;
     }

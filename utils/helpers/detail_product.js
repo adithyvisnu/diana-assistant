@@ -1,6 +1,6 @@
 const rp = require('request-promise');
 const uri = 'https://catalog-api-dev.telkomdigitalsolution.co/api/catalog/products/v1/?sort=POPULAR&size=3';
-const uriSearch = 'https://catalog-api-dev.telkomdigitalsolution.co/api/catalog/products/v1/?searchProduct=jasdjhasd'
+const uriSearch = 'https://catalog-api-dev.telkomdigitalsolution.co/api/catalog/products/v1/?searchProduct='
 
 const get = async (data) => {
   const body = {
@@ -134,8 +134,24 @@ const get = async (data) => {
   return res;
 };
 
-const search = async (token, keywords) => {
+const search = async (data, keywords) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${data.content}`,
+      // 'QISCUS-SDK-APP-ID': 'lucinta-a-glhzm4uglkx',
+      // 'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
+    },
+    uri: uriSearch+''+keywords,
+    json: true
+  }
 
+  const res = rp(options).then(res => {
+    return res;
+  }).catch((err) => {
+    return err;
+  });
+  return res;
 };
 
 const detail = async (token, id) => {
@@ -143,5 +159,6 @@ const detail = async (token, id) => {
 };
 
 module.exports = {
-  get
+  get,
+  search
 }
