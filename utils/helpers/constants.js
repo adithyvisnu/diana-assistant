@@ -4,6 +4,10 @@ const type = [
   'analytics',
 ];
 
+const pdf = [
+  'Strategy Shifting to The Front Sales Connectivity 2020',
+  'AM Alignment CFUE'
+]
 
 const bodyQiscus = [
   {
@@ -35,6 +39,7 @@ const buttonTemplate = {
 
 module.exports = {
   type,
+  pdf,
   bodyQiscus,
   buttonTemplate
 }
