@@ -36,7 +36,7 @@ const sendQiscus = async (data, product) => {
             'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
         },
         body: {
-            "user_id": "fikri@qiscus.com",
+            "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
             "room_id": "9850506",
             "type": payload.type,
             "payload": {
