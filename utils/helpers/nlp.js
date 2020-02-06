@@ -8,8 +8,8 @@ const nlpTest = async (payload) => {
                 reject({error: true, data: err});
             }
             resultTest = classifier.getClassifications(payload);
+            resolve({error: false, data: resultTest});
         });
-        resolve({error: false, data: resultTest});
     });
 };
 

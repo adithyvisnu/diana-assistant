@@ -56,7 +56,6 @@ const sendQiscus = async (data, product) => {
         json: true
     };
     const res = rp(options).then(res => {
-        console.log(res)
         return res;
     }).catch((err) => {
         return err;
@@ -119,23 +118,42 @@ const proccessAction = async (data) => {
     let result;
     switch (indexConstants) {
         case 0:
-            data.message = 'Product atau layanan apa yang kamu cari ?';
-            result = await sendDefensiveMessage(data);
-            setTimeout(async () => {
-                const product = await detail_product.get(data);
-                const result = await sendQiscus(CONSTANTS.bodyQiscus, product);
-                console.log(JSON.stringify(result, 0, 2))
-            }, 100);
+            let resultPromise = Promise.all([
+                new Promise(async (resolve, reject) => {
+                    data.message = 'Product atau layanan apa yang kamu cari ?';
+                    resolve(await sendDefensiveMessage(data))
+                }),
+                new Promise(async (resolve, reject) => {
+                    const product = await detail_product.get(data);
+                    resolve(await sendQiscus(CONSTANTS.bodyQiscus, product));
+                })
+            ])
+            result = { err: null, data: [] }
             break;
         case 1: result = await policies.list(data); break;
         case 2: result = await sendQiscus(); break;
         default:
+            console.log(data.message)
             const resultTest = await nlp.nlpTest(data.message);
             if (resultTest.error) {
                 data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
                 result = await sendDefensiveMessage(data);
+                break;
+            }
+
+            const indexPdf = CONSTANTS.pdf.findIndex(element => element === resultTest.data[0].label);
+            console.log(indexPdf)
+            if(indexPdf > -1) {
+                switch(indexPdf) {
+                    case 0: result = await policies.SSTFSC(data); break;
+                    case 1: result = await policies.AMALCFUE(data); break;
+                    default: 
+                        data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
+                        result = await sendDefensiveMessage(data);
+                        break;
+                }
             } else {
-                console.log(resultTest[0]);
+
             }
             break;
     }

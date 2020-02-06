@@ -51,11 +51,11 @@ const list = async ({ message, roomId, guestId}) => {
   return res;
 };
 
-const SSTFSC = async (token, keywords) => {
+const SSTFSC = async ({roomId}) => {
   const body = {
     "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
     "room_id": roomId,
-    "type": "buttons",
+    "type": "file_attachment",
     "payload": {
       "url": "https://drive.google.com/file/d/1hL3650r8slNkjLMXEJ_UUTrtmMoZan5F/view?usp=sharing",
       "caption": "Strategy Shifting to The Front Sales Connectivity 2020",
@@ -85,11 +85,11 @@ const SSTFSC = async (token, keywords) => {
   return res;
 };
 
-const AMALCFUE = async (token, id) => {
+const AMALCFUE = async ({roomId}) => {
   const body = {
     "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
     "room_id": roomId,
-    "type": "buttons",
+    "type": "file_attachment",
     "payload": {
       "url": "https://drive.google.com/file/d/1ha4l9pOXYE804uhVCOVB9uuN5OsU5PY1/view?usp=sharing",
       "caption": "AM Alignment CFUE",
@@ -120,5 +120,7 @@ const AMALCFUE = async (token, id) => {
 };
 
 module.exports = {
-  list
+  list,
+  SSTFSC,
+  AMALCFUE
 }
