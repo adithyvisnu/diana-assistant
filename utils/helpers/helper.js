@@ -12,8 +12,8 @@ const sendQiscus = async (data) => {
       'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
     },
     body: {
-      "user_id": "guest-101",
-      "room_id": "9832314",
+      "user_id": "fikri@qiscus.com",
+      "room_id": "9850506",
       "type": "buttons",
       "payload": {
         "user_id": "guest-101",
@@ -102,7 +102,8 @@ const createRoom = async (userId) => {
 }
 
 const proccessAction = async (data) => {
-    const indexConstants = CONSTANTS.type.find(element => element === data.message.toLowerCase());
+    const indexConstants = CONSTANTS.type.findIndex(element => element);
+    console.log(indexConstants)
     let result;
     switch (indexConstants) {
         case 0: await detail_product.get(data);
