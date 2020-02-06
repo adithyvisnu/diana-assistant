@@ -8,9 +8,7 @@ const nlp = require('../helpers/nlp');
 const sendQiscus = async (data, product) => {
     // console.log(product)
     const payload = {
-            cards:[]
-            
-        
+        cards: []
     }
     for (let index = 0; index < data.length; index++) {
         const bodyQiscus = data[index];
@@ -21,11 +19,11 @@ const sendQiscus = async (data, product) => {
                 payload.cards.push({
                     // label: 'button'+index,
                     image: data.productIconUrl,
-                    title:data.productName
+                    title: data.productName
 
                 });
             });
-      }
+        }
 
     }
 
@@ -117,7 +115,7 @@ const proccessAction = async (data) => {
     console.log(indexConstants)
     let result;
     switch (indexConstants) {
-        case 0: 
+        case 0:
             data.message = 'Product atau layanan apa yang kamu cari ?';
             result = await sendDefensiveMessage(data);
             setTimeout(async () => {
@@ -129,13 +127,13 @@ const proccessAction = async (data) => {
         case 1: result = await policies.list(data); break;
         case 2: result = await sendQiscus(); break;
         default:
-            const resultTest = await nlp.nlpTest(indexConstants.toString());
-            if (resultTest[0].value == resultTest[1].value) {
+            const resultTest = await nlp.nlpTest(data.message);
+            if (resultTest.error) {
                 data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
                 result = await sendDefensiveMessage(data);
             } else {
                 console.log(resultTest[0]);
-            } 
+            }
             break;
     }
     return result;

@@ -1,14 +1,16 @@
 const natural = require('natural');
-const classifier = new natural.BayesClassifier();
 
 const nlpTest = async (payload) => {
-    let resultTest = '';
-
-    natural.BayesClassifier.load('classifier.json', null, function(err, classifier) {
-        resultTest = classifier.getClassifications(payload);
+    return new Promise((resolve, reject) => {
+        let resultTest = '';
+        natural.BayesClassifier.load('classifier.json', null, function(err, classifier) {
+            if(err) {
+                reject({error: true, data: err});
+            }
+            resultTest = classifier.getClassifications(payload);
+        });
+        resolve({error: false, data: resultTest});
     });
-
-    return resultTest;
 };
 
 module.exports = {
