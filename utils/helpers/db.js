@@ -6,7 +6,12 @@ const searchTicket = async () => {
         type: '_doc',
         body: {
           query: {
-            match: { "constituencyname": "Harwich" }
+              range: {
+                createdAt: {
+                    gte: '2019-01-16T04:37:13.497Z',
+                    lte: '2020-01-16T04:37:13.497Z'
+                }
+              }
           },
         }
       },function (error, response,status) {

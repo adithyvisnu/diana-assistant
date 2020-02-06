@@ -113,6 +113,31 @@ const createRoom = async (userId) => {
     return res;
 }
 
+const messageAnalytic = async (data) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'QISCUS-SDK-APP-ID': 'lucinta-a-glhzm4uglkx',
+            'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
+        },
+        body:
+        {
+            "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
+            "room_id": data.roomId,
+            "message": data.message
+        },
+        uri,
+        json: true
+    };
+    const res = rp(options).then(res => {
+        return res;
+    }).catch((err) => {
+        return err;
+    });
+    return res;
+};
+
 const proccessAction = async (data) => {
     console.log(data.message)
     const indexConstants = CONSTANTS.type.findIndex(element => element === data.message);
@@ -130,10 +155,13 @@ const proccessAction = async (data) => {
             break;
         case 1: result = await policies.list(data); break;
         case 2: 
-            let resultListTicket = await analytics.getListTicket(data);
-
-            let resultStringToQiscus = '';
-            result = await sendDefensiveMessage(resultStringToQiscus);
+            let resultListTicket = await analytics.getListFromElastic(data);
+            console.log(resultListTicket);
+            let dataToMessage = {
+                roomId : data.roomId,
+                message : ''
+            };
+            result = await messageAnalytic(dataToMessage);
             break;
         default:
             const resultTest = await nlp.nlpTest(data.message);
