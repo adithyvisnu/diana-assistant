@@ -19,7 +19,8 @@ const sendQiscus = async (data, product) => {
                 payload.cards.push({
                     // label: 'button'+index,
                     image: data.productIconUrl,
-                    title: data.productName
+                    title:data.productName,
+                    description: data.productId
 
                 });
             });
@@ -40,6 +41,7 @@ const sendQiscus = async (data, product) => {
             "room_id": "9850506",
             "type": payload.type,
             "payload": {
+                "type": payload.type,
                 cards: payload.cards
                 // "user_id": "guest-101",
                 // "room_id": "9832314",
@@ -54,7 +56,7 @@ const sendQiscus = async (data, product) => {
         json: true
     };
     const res = rp(options).then(res => {
-        // console.log(res)
+        console.log(res)
         return res;
     }).catch((err) => {
         return err;
@@ -121,7 +123,7 @@ const proccessAction = async (data) => {
             setTimeout(async () => {
                 const product = await detail_product.get(data);
                 const result = await sendQiscus(CONSTANTS.bodyQiscus, product);
-                // console.log(JSON.stringify(result, 0, 2))
+                console.log(JSON.stringify(result, 0, 2))
             }, 100);
             break;
         case 1: result = await policies.list(data); break;
