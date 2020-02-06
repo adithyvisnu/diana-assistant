@@ -11,7 +11,7 @@ router.post('/', async function(req, res, next) {
 
   const data = {
       message,
-      content,
+    //   content,
       roomId,
       guestId
   }
