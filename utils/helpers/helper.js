@@ -10,7 +10,7 @@ const sendQiscus = async (data, product) => {
     const payload = {
         cards: []
     }
-    for (let index = 0; index < data.length; index++) {
+    for (let index = 0; index < 1; index++) {
         const bodyQiscus = data[index];
         if (bodyQiscus.type == 'product catalog') {
             payload.type = 'carousel';
@@ -20,15 +20,23 @@ const sendQiscus = async (data, product) => {
                     // label: 'button'+index,
                     image: data.productIconUrl,
                     title:data.productName,
-                    description: data.productId
-
+                    description: data.productId,
+                    "default_action": {
+                        "type": "",
+                        "postback_text": "",
+                        "payload": {
+                            "url": "",
+                            "method": "",
+                            "payload": null
+                        }
+                    },"buttons": []
                 });
             });
         }
 
     }
 
-    // console.log(JSON.stringify(payload, 0, 2))
+    console.log(JSON.stringify(payload, null, 2))
     const options = {
         method: 'POST',
         headers: {
@@ -41,7 +49,6 @@ const sendQiscus = async (data, product) => {
             "room_id": "9850506",
             "type": payload.type,
             "payload": {
-                "type": payload.type,
                 cards: payload.cards
                 // "user_id": "guest-101",
                 // "room_id": "9832314",
@@ -118,17 +125,11 @@ const proccessAction = async (data) => {
     let result;
     switch (indexConstants) {
         case 0:
-            let resultPromise = Promise.all([
-                new Promise(async (resolve, reject) => {
-                    data.message = 'Product atau layanan apa yang kamu cari ?';
-                    resolve(await sendDefensiveMessage(data))
-                }),
-                new Promise(async (resolve, reject) => {
-                    const product = await detail_product.get(data);
-                    resolve(await sendQiscus(CONSTANTS.bodyQiscus, product));
-                })
-            ])
-            result = { err: null, data: [] }
+            data.message = 'Product atau layanan apa yang kamu cari ?';
+            result = await sendDefensiveMessage(data);
+            const product = await detail_product.get(data);
+            const results = await sendQiscus(CONSTANTS.bodyQiscus, product);
+            console.log(JSON.stringify(results, 0, 2))
             break;
         case 1: result = await policies.list(data); break;
         case 2: result = await sendQiscus(); break;

@@ -7,6 +7,7 @@ const nlpTest = async (payload) => {
             if(err) {
                 reject({error: true, data: err});
             }
+            
             resultTest = classifier.getClassifications(payload);
             resolve({error: false, data: resultTest});
         });
