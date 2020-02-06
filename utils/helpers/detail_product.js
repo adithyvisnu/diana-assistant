@@ -1,7 +1,7 @@
 const rp = require('request-promise');
 const uri = 'api/catalog/solutions/v1/solution-data';
 
-export const get = async (token, keywords, payload) => {
+const get = async (token, keywords, payload) => {
   const body = {
     "user_id": "guest-101",
     "room_id": "9832314",
@@ -141,3 +141,7 @@ const search = async (token, keywords) => {
 const detail = async (token, id) => {
 
 };
+
+module.exports = {
+  get
+}

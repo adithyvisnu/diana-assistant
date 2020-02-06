@@ -11,7 +11,7 @@ router.post('/', async function(req, res, next) {
   const roomId = req.body.payload.room.id_str;
   const guestId = req.body.payload.from.email;
 
-  const indexConstants = constants.type.find(element => element === message.toLowerString());
+  const indexConstants = constants.type.find(element => element === message.toLowerCase());
   switch (indexConstants) {
     case 0: await detail_product.get();
     case 1: await QiscusRequest.sendQiscus();
