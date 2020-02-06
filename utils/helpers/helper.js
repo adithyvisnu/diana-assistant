@@ -110,8 +110,8 @@ const proccessAction = async (data) => {
     switch (indexConstants) {
         case 0: await detail_product.get(data);
         case 1: await sendQiscus();
-        case 2: await sendQiscus();
-        case 3: await sendQiscus();
+        case indexConstants == 'analytics':
+          await sendQiscus();
         default:  
             const resultTest = await nlp.nlpTest(indexConstants.toString());
             if (resultTest[0].value == resultTest[1].value) {

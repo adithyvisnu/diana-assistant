@@ -22,6 +22,14 @@ classifier.addDocument('ada ngga VPN IP', 'VPN IP');
 classifier.addDocument('VPN IP', 'VPN IP');
 classifier.addDocument('product VPN IP', 'VPN IP');
 
+classifier.addDocument('Strategy Shifting to The Front Sales Connectivity 2020', 'Strategy Shifting to The Front Sales Connectivity 2020');
+classifier.addDocument('Strategy Shifting to The Front Sales', 'Strategy Shifting to The Front Sales Connectivity 2020');
+classifier.addDocument('pdf Connectivity 2020', 'Strategy Shifting to The Front Sales Connectivity 2020');
+
+classifier.addDocument('AM Alignment CFUE', 'AM Alignment CFUE');
+classifier.addDocument('AM CFUE', 'AM Alignment CFUE');
+classifier.addDocument('AM Alignment', 'AM Alignment CFUE');
+
 classifier.train();
 
 classifier.save('classifier.json', function(err, classifier) {
