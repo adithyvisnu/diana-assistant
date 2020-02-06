@@ -7,7 +7,7 @@ const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 const nlp = require('../helpers/nlp');
 
 const sendQiscus = async (data, product) => {
-    // console.log(product)
+    console.log('data di senQiscus', data)
     const payload = {
         cards: []
     }
@@ -45,22 +45,6 @@ const sendQiscus = async (data, product) => {
         }
 
     }
-
-    console.log("awaewaewdawd", JSON.stringify({
-        "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
-        "room_id": data.roomId,
-        "type": payload.type,
-        "payload": {
-            cards: payload.cards
-            // "user_id": "guest-101",
-            // "room_id": "9832314",
-            // "type": payload.type,
-            // "payload": {
-            //     text:payload.text,
-            //     buttons:payload.buttons
-            // }
-        }
-    }, null, 2))
     const options = {
         method: 'POST',
         headers: {

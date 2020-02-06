@@ -16,6 +16,8 @@ router.post('/', async function(req, res, next) {
       guestId
   }
 
+
+  console.log('data di assistant', data)
   const request = await helpers.proccessAction(data);
   console.log(JSON.stringify(request, 0, 2))
 //   console.log(JSON.stringify(req.body, 0, 2))
