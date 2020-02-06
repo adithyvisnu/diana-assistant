@@ -1,6 +1,7 @@
 const rp = require('request-promise');
 const CONSTANTS = require('./constants');
 const detail_product = require('./detail_product');
+const policies = require('./policies');
 const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 const nlp = require('../helpers/nlp');
 
@@ -110,10 +111,11 @@ const createRoom = async (userId) => {
 }
 
 const proccessAction = async (data) => {
-    const indexConstants = CONSTANTS.type.find(element => element == data.message.toLowerCase());
+    const indexConstants = CONSTANTS.type.findIndex(element => element === data.message);
+    console.log(indexConstants)
     let result;
     switch (indexConstants) {
-        case 'product catalog':
+        case 0: 
             data.message = 'Product atau layanan apa yang kamu cari ?';
             result = await sendDefensiveMessage(data);
             setTimeout(async () => {
@@ -122,9 +124,8 @@ const proccessAction = async (data) => {
                 // console.log(JSON.stringify(result, 0, 2))
             }, 100);
             break;
-        case 1: await sendQiscus();
-        case 2: await sendQiscus();
-        case 3: await sendQiscus();
+        case 1: result = await policies.list(data); break;
+        case 2: result = await sendQiscus(); break;
         default:
             const resultTest = await nlp.nlpTest(indexConstants.toString());
             if (resultTest[0].value == resultTest[1].value) {
@@ -132,7 +133,7 @@ const proccessAction = async (data) => {
                 result = await sendDefensiveMessage(data);
             } else {
                 console.log(resultTest[0]);
-            }
+            } 
             break;
     }
     return result;
