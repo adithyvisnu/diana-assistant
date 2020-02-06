@@ -1,7 +1,7 @@
 const rp = require('request-promise');
+const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 
 const sendQiscus = async (data) => {
-  const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
   const options = {
     method: 'POST',
     headers: {
@@ -46,6 +46,32 @@ const sendQiscus = async (data) => {
   return res;
 };
 
+const sendDefensiveMessage = async (data) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'QISCUS-SDK-APP-ID': 'lucinta-a-glhzm4uglkx',
+      'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
+    },
+    body: 
+    {
+      "user_id": "guest-101",
+      "room_id": "9832314",
+      "message": "this is new message"
+    },
+    uri,
+    json: true
+  };
+  const res = rp(options).then(res => {
+    return res;
+  }).catch((err) => {
+    return err;
+  });
+  return res;
+};
+
 module.exports = {
-  sendQiscus
+  sendQiscus,
+  sendDefensiveMessage
 };

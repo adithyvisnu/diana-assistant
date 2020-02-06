@@ -1,4 +1,4 @@
-const type = [
+export const type = [
   'product catalog',
   'lapor gangguan',
   'policies & guidances',
