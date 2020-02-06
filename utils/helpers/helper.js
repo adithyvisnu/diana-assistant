@@ -6,8 +6,8 @@ const analytics = require('./analytics');
 const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 const nlp = require('../helpers/nlp');
 
-const sendQiscus = async (data, product) => {
-    console.log('data di senQiscus', data)
+const sendQiscus = async (datas, data, product) => {
+    console.log('data di senQiscus', datas)
     const payload = {
         cards: []
     }
@@ -54,7 +54,7 @@ const sendQiscus = async (data, product) => {
         },
         body: {
             "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
-            "room_id": data.roomId,
+            "room_id": datas.roomId,
             "type": payload.type,
             "payload": {
                 cards: payload.cards
@@ -181,7 +181,7 @@ const proccessAction = async (data) => {
             data.message = 'Product atau layanan apa yang kamu cari ?';
             result = await sendDefensiveMessage(data);
             const product = await detail_product.get(data);
-            const results = await sendQiscus(CONSTANTS.bodyQiscus, product);
+            const results = await sendQiscus(data, CONSTANTS.bodyQiscus, product);
             console.log(JSON.stringify(results, 0, 2))
             break;
         case 1: result = await policies.list(data); break;
