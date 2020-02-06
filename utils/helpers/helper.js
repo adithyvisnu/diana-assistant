@@ -11,7 +11,7 @@ const sendQiscus = async (data) => {
         'QISCUS-SDK-SECRET': '39c265885f87b74a2c65db9a9989cc7b'
     },
     body : {
-        "user_id": "guest-101",
+        "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
         "room_id": "9832314",
         "type": "buttons",
         "payload": {
