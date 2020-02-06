@@ -3,7 +3,7 @@ const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 
 const list = async ({ message, roomId, guestId}) => {
   const body = {
-    "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
+    "user_id": "lucinta",
     "room_id": roomId,
     "type": "buttons",
     "payload": {
@@ -53,7 +53,7 @@ const list = async ({ message, roomId, guestId}) => {
 
 const SSTFSC = async ({roomId}) => {
   const body = {
-    "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
+    "user_id": "lucinta",
     "room_id": roomId,
     "type": "file_attachment",
     "payload": {
@@ -87,7 +87,7 @@ const SSTFSC = async ({roomId}) => {
 
 const AMALCFUE = async ({roomId}) => {
   const body = {
-    "user_id": "5e3b9b1f20f83706c9f33ae4@vutura",
+    "user_id": "lucinta",
     "room_id": roomId,
     "type": "file_attachment",
     "payload": {
