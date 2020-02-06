@@ -5,7 +5,7 @@ const nlpTest = async (payload) => {
     let resultTest = '';
 
     natural.BayesClassifier.load('classifier.json', null, function(err, classifier) {
-        resultTest = classifier.classify(payload);
+        resultTest = classifier.getClassifications(payload);
     });
 
     return resultTest;

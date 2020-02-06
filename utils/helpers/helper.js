@@ -3,6 +3,8 @@ const CONSTANTS = require('./constants');
 const detail_product = require('./detail_product');
 const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 
+const nlp = require('../helpers/nlp');
+
 const sendQiscus = async (data) => {
   const options = {
     method: 'POST',
@@ -110,8 +112,13 @@ const proccessAction = async (data) => {
         case 2: await sendQiscus();
         case 3: await sendQiscus();
         default:  
-            data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
-            result = await sendDefensiveMessage(data);
+            const resultTest = await nlp.nlpTest(indexConstants.toString());
+            if (resultTest[0].value == resultTest[1].value) {
+              data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
+              result = await sendDefensiveMessage(data); 
+            } else {
+              console.log(resultTest[0]);
+            }
             break;
     }
     return result;
