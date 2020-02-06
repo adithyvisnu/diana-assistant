@@ -3,6 +3,8 @@ const CONSTANTS = require('./constants');
 const detail_product = require('./detail_product');
 const policies = require('./policies');
 const analytics = require('./analytics');
+var natural = require('natural');
+var tokenizer = new natural.WordTokenizer();
 const uri = `https://api.qiscus.com/api/v2.1/rest/post_comment`;
 const nlp = require('../helpers/nlp');
 
@@ -193,14 +195,27 @@ const proccessAction = async (data) => {
             result = await messageAnalytic(dataToMessage);
             break;
         default:
-            console.log(data.message)
             const resultTest = await nlp.nlpTest(data.message);
-            console.log(resultTest);
-            if (resultTest.err) {
+            const newStr = tokenizer.tokenize(data.message.toLowerCase());
+            let f = false;
+            for (let index = 0; index < newStr.length; index++) {
+                const str = newStr[index];
+                console.log(str)
+                if (resultTest.data[0].label.toLowerCase().includes(str)) {
+                    f = true
+                    break;
+                }
+            }
+
+            if (f === false) {
                 data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
                 result = await sendDefensiveMessage(data);
                 break;
             }
+            // console.log(resultTest.data[0].label, resultTest.data[0].label.includes(data.message))
+            // if (resultTest.err || !resultTest.data[0].label.toLowerCase().includes(data.message.toLowerCase())) {
+               
+            // }
 
             const indexPdf = CONSTANTS.pdf.findIndex(element => element === resultTest.data[0].label);
             if(indexPdf > -1) {
