@@ -29,7 +29,16 @@ const sendQiscus = async (data, product) => {
                             "method": "",
                             "payload": null
                         }
-                    },"buttons": []
+                    },"buttons": [{
+                        "label": "button1",
+                        "type": "postback",
+                        "postback_text": "Load more",
+                        "payload": {
+                            "url": "http://somewhere.com/button1",
+                            "method": "get",
+                            "payload": null
+                        }
+                    }]
                 });
             });
         }
