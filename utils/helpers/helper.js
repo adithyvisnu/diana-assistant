@@ -188,7 +188,6 @@ const proccessAction = async (data) => {
         console.log(JSON.stringify(results, 0, 2))
     }
 
-
     switch (indexConstants) {
         case 0:
             data.message = 'Product atau layanan apa yang kamu cari ?';
@@ -207,6 +206,18 @@ const proccessAction = async (data) => {
             result = await messageAnalytic(dataToMessage);
             break;
         default:
+            if (data.message.toLowerCase() == 'jumlah pengaduan') {
+                console.log('okey')
+                let resultListTicket = await analytics.getListFromElastic();
+                let dataToMessage = {
+                    roomId : data.roomId,
+                    message : 'Menampilkan laporan status ticket aduan \n \n Format : \n Laporan pengaduan MyTds seminggu kebelakang. \n Total Tiket ' + resultListTicket.hits.total
+                };
+                result = await messageAnalytic(dataToMessage);
+                console.log(result)
+                break;
+            }
+        
             const resultTest = await nlp.nlpTest(data.message);
             // console.log(resultTest.data);
             const newStr = tokenizer.tokenize(data.message.toLowerCase());
