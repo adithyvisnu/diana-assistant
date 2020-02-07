@@ -206,7 +206,7 @@ const proccessAction = async (data) => {
             result = await messageAnalytic(dataToMessage);
             break;
         default:
-            if (data.message.toLowerCase() == 'jumlah pengaduan') {
+            if (data.message.toLowerCase() == 'jumlah gangguan') {
                 console.log('okey')
                 let resultListTicket = await analytics.getListFromElastic();
                 let dataToMessage = {
