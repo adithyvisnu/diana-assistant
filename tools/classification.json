@@ -415,6 +415,36 @@
       "question": "siapa kamu",
       "answer": "aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
 
- }
+ },
+ {
+  "type": "word",
+  "question": "tanggal berapa",
+  "answer": "Sekarang, var day=dateFormat(new Date(), 'yyyy-mm-dd h:MM:ss')"
+},
+{
+  "type": "word",
+  "question": "thank you",
+  "answer": "Senang bisa berinteraksi dengan kamu :) sapa Carissa lagi ya"
+},
+
+{
+  "type": "word",
+  "question": "terima kasih",
+  "answer": "Senang bisa berinteraksi dengan kamu :) sapa Carissa lagi ya"
+},
+
+{
+  "type": "word",
+  "question": "makasih",
+  "answer": "Senang bisa berinteraksi dengan kamu :) sapa Carissa lagi ya"
+},
+
+{
+  "type": "word",
+  "question": "terima kasih min",
+  "answer": "Senang bisa berinteraksi dengan kamu :) sapa Carissa lagi ya"
+}
+
+
 
 ]

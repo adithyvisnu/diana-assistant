@@ -176,7 +176,19 @@ const proccessAction = async (data) => {
     console.log(data.message)
     const indexConstants = CONSTANTS.type.findIndex(element => element === data.message.toLowerCase());
     console.log(indexConstants)
+    const resultTests = await nlp.nlpTest(data.message);
     let result;
+    const staticConditionProduct = ['product', 'layanan']
+    if (staticConditionProduct.includes(data.message.toLowerCase())) {
+        data.message = 'Product atau layanan apa yang kamu cari ?';
+        result = await sendDefensiveMessage(data);
+        const product = await detail_product.get(data);
+        console.log(product)
+        const results = await sendQiscus(data, CONSTANTS.bodyQiscus, product);
+        console.log(JSON.stringify(results, 0, 2))
+    }
+
+
     switch (indexConstants) {
         case 0:
             data.message = 'Product atau layanan apa yang kamu cari ?';
@@ -225,6 +237,7 @@ const proccessAction = async (data) => {
                     break;
                 }
             }
+        
 
             console.log(f)
 
