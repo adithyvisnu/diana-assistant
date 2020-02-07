@@ -174,7 +174,7 @@ const sendQiscusCard = async (body) => {
 
 const proccessAction = async (data) => {
     console.log(data.message)
-    const indexConstants = CONSTANTS.type.findIndex(element => element === data.message);
+    const indexConstants = CONSTANTS.type.findIndex(element => element === data.message.toLowerCase());
     console.log(indexConstants)
     let result;
     switch (indexConstants) {
