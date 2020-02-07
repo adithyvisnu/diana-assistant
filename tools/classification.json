@@ -373,20 +373,35 @@
     },
     {
       "type": "word",
-      "question": "Hay",
+      "question": "Hai",
       "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
-    },
-    {
+ },
+
+{
       "type": "word",
-      "question": "Hello",
+      "question": "Hi",
       "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
-    },
-    {
+ },
+
+{
       "type": "word",
-      "question": "Pagi",
+      "question": "Hy",
       "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
-    },
-    {
+ },
+
+{
+      "type": "word",
+      "question": "Halo",
+      "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
+ },
+
+{
+      "type": "word",
+      "question": "Helo",
+      "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
+ },
+
+{
       "type": "word",
       "question": "pagi",
       "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
@@ -409,6 +424,31 @@
       "question": "malam",
       "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
  },
+
+{
+      "type": "word",
+      "question": "Assalamualaikum",
+      "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
+ },
+
+{
+      "type": "word",
+      "question": "siapa kamu",
+      "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
+ },
+
+{
+      "type": "word",
+      "question": "tanya",
+      "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
+ },
+
+{
+      "type": "word",
+      "question": "nanya",
+      "answer": "Hai, salam kenal aku Carissa, asisten virtual yang siap membantu Anda. Ada yang bisa Carissa bantu?"
+ }
+,
 
 {
       "type": "word",
@@ -443,7 +483,54 @@
   "type": "word",
   "question": "terima kasih min",
   "answer": "Senang bisa berinteraksi dengan kamu :) sapa Carissa lagi ya"
+},
+{
+  "type": "word",
+  "question": "Policies & Guidances",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara professional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan stategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategy winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
+},
+
+{
+  "type": "word",
+  "question": "policy",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara profesional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan strategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategi winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
+},
+
+{
+  "type": "word",
+  "question": "policies",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara profesional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan strategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategi winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
+},
+
+{
+  "type": "word",
+  "question": "guidances",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara profssional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan strategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategi winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
+},
+
+{
+  "type": "word",
+  "question": "aturan",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara profesional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan strategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategi winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
+},
+
+{
+  "type": "word",
+  "question": "peraturan",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara professional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan stategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategy winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
+},
+
+{
+  "type": "word",
+  "question": "kebijakan",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara professAional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan strategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategi winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
+},
+{
+  "type": "word",
+  "question": "kebijakan",
+  "answer": "Yuk ketahui kebijakan-kebijakan yang ada di Telkom \n \n AM Alignment CFUE \n Description \n Rangkaian kegiatan dalam rangka pengelolaan Strategic Account  yg dilakukan secara profesional dengan memberikan solusi total dalam upaya memuaskan customer, meningkatkan loyalitas kepada Telkom dan level of customer intimacy yang tinggi dalam rangka untuk memenangkan persaingan di High End Market. \n Objective \n Memberikan guidance kepada tim sales dan marketing di BUD, \n Sebagai dasar dalam pemberian diskon pada saat penawaran produk, \n Sebagai dasar dalam pembuatan strategi marketing produk/layanan, \n Sebagai dasar dalam pembuatan varian produk baru, \n Sebagai dasar dalam menentukan strategi winback \n \n \n Strategy Shifting to The Front Sales Connectivity 2020 \n Description \n Kebijakan mengenai panduan dalam marketing strategy di tahun 2020 yang memberikan penjelasan produk connectivity  di lingkungan CFUE dengan formulasi 4P (price , product , promotion, place), yang bertujuan untuk memenangkan persaingan pasar. \n Objective \n Memastikan pemenuhan kebutuhan Strategic Account dengan memberikan pelayanan yang berorientasi kepada peningkatan kepuasan dan loyalitas Strategic Account, \n Mengamankan pendapatan dan profitability Telkom, \n Meningkatkan nilai Telkom dimata Strategic Account"
 }
+
 
 
 
