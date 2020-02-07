@@ -28,6 +28,6 @@ for (let index = 0; index < products.length; index++) {
 
 classifier.train();
 
-classifier.save('classifier_6.json', function(err, classifier) {
+classifier.save('classifier_7.json', function(err, classifier) {
     // the classifier is saved to the classifier.json file!
 });
