@@ -196,26 +196,47 @@ const proccessAction = async (data) => {
             break;
         default:
             const resultTest = await nlp.nlpTest(data.message);
+            // console.log(resultTest.data);
             const newStr = tokenizer.tokenize(data.message.toLowerCase());
-            let f = false;
+            let f = { condition:false};
             for (let index = 0; index < newStr.length; index++) {
                 const str = newStr[index];
-                console.log(str)
-                if (resultTest.data[0].label.toLowerCase().includes(str)) {
-                    f = true
+                // console.log(resultTest.data)
+                if (resultTest.data[0].value !== resultTest.data[5].value) {
+                    f.condition = 'next'
+                    f.text = 'possible'
+                    f.value = resultTest.data[0].label
+                    break;
+                }if (resultTest.data[0].value === resultTest.data[5].value) {
+                    if (resultTest.data[4].label.toLowerCase().includes(str)) {
+                        f.condition = true
+                        break;
+                    }else{
+                        f.condition = false
+                        f.text = 'ohno!'
+                        f.value = resultTest.data[0].label
+                        break;
+                    }
+                    
+                }else{
+                    f.condition = 'next'
+                    f.text = 'impossible'
+                    f.value = resultTest.data[0].label
                     break;
                 }
             }
 
-            if (f === false) {
-                data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
+            console.log(f)
+
+            if (f.condition === false) {
+                data.message = 'Maaf, Carissa masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
+                result = await sendDefensiveMessage(data);
+                break;
+            }else if (f.condition === 'next') {
+                data.message = f.value;
                 result = await sendDefensiveMessage(data);
                 break;
             }
-            // console.log(resultTest.data[0].label, resultTest.data[0].label.includes(data.message))
-            // if (resultTest.err || !resultTest.data[0].label.toLowerCase().includes(data.message.toLowerCase())) {
-               
-            // }
 
             const indexPdf = CONSTANTS.pdf.findIndex(element => element === resultTest.data[0].label);
             if(indexPdf > -1) {
@@ -223,7 +244,7 @@ const proccessAction = async (data) => {
                     case 0: result = await policies.SSTFSC(data); break;
                     case 1: result = await policies.AMALCFUE(data); break;
                     default: 
-                        data.message = 'Maaf, Lucinta masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
+                        data.message = 'Maaf, Carissa masih mencoba memahami maksud anda.\nSilakan kembali ke Menu untuk melihat informasi yang Lucinta sediakan';
                         result = await sendDefensiveMessage(data);
                         break;
                 }
@@ -237,38 +258,44 @@ const proccessAction = async (data) => {
                     "room_id": data.roomId,
                     "type": "card",
                     "payload": {
-                      "text": resultTest.data[0].label,
-                      "image": "http://url.com/gambar.jpg",
-                      "title": resultTest.data[0].label,
-                      "description": resultTest.data[0].label,
-                      "url": "http://url.com/baju?id=123&track_from_chat_room=123",
-                      "buttons": [
-                          {
-                              "label": "button1",
-                              "type": "postback",
-                              "payload": {
-                                  "url": "http://somewhere.com/button2?id=123",
-                                  "method": "get",
-                                  "payload": null
-                              }
-                          },
-                          {
-                              "label": "button2",
-                              "type": "link",
-                              "payload": {
-                                  "url": "http://somewhere.com/button2?id=123",
-                                  "method": "get",
-                                  "payload": null
-                              }
-                          }
-                      ]
+                        "text": resultTest.data[0].label,
+                        "image": "http://url.com/gambar.jpg",
+                        "title": resultTest.data[0].label,
+                        "description": resultTest.data[0].label,
+                        "url": "http://url.com/baju?id=123&track_from_chat_room=123",
+                        "buttons": [
+                            {
+                                "label": "button1",
+                                "type": "postback",
+                                "payload": {
+                                    "url": "http://somewhere.com/button2?id=123",
+                                    "method": "get",
+                                    "payload": null
+                                }
+                            },
+                            {
+                                "label": "button2",
+                                "type": "link",
+                                "payload": {
+                                    "url": "http://somewhere.com/button2?id=123",
+                                    "method": "get",
+                                    "payload": null
+                                }
+                            }
+                        ]
                     }
-                  }
+                    }
 
                 const resultCard = await sendQiscusCard(body);
                 console.log(JSON.stringify(resultCard, 0, 2))
                 break;
             }
+            // console.log(resultTest.data[0].label, resultTest.data[0].label.includes(data.message))
+            // if (resultTest.err || !resultTest.data[0].label.toLowerCase().includes(data.message.toLowerCase())) {
+               
+            // }
+
+           
             break;
     }
     return result;

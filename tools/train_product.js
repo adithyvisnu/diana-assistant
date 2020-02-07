@@ -14,9 +14,13 @@ const kata = [
 
 for (let index = 0; index < products.length; index++) {
     const product = products[index];
-    kata.map(data => {
-        classifier.addDocument(data.replace('learn', product.productName), product.productName)
-    })
+    if (product.type == 'word') {
+        classifier.addDocument(product.question, product.answer)
+    }else{
+        kata.map(data => {
+            classifier.addDocument(data.replace('learn', product.productName), product.productName)
+        })
+    }
     // console.log(product.productName)
     
 }
@@ -24,6 +28,6 @@ for (let index = 0; index < products.length; index++) {
 
 classifier.train();
 
-classifier.save('classifier_3.json', function(err, classifier) {
+classifier.save('classifier_5.json', function(err, classifier) {
     // the classifier is saved to the classifier.json file!
 });
